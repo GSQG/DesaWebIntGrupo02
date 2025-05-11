@@ -13,7 +13,6 @@
 <div class="container">
     <h1><%= accion.equalsIgnoreCase("edit") ? "Editar" : "Nueva" %> Marca</h1>
     <form action="Marca.do" method="post">
-        <!-- Se utiliza el campo hidden para definir la acción a realizar -->
         <input type="hidden" name="accion" value="<%= accion.equalsIgnoreCase("edit") ? "actualizar" : "insertar" %>">
         <% if(accion.equalsIgnoreCase("edit")) { %>
         <input type="hidden" name="idMarca" value="<%= request.getParameter("id") %>">
