@@ -1,6 +1,6 @@
 <%@page import="java.util.List"%>
-<%@page import="BussinesEntity.CarroBE"%>
-<%@page import="BussinesLogic.CarroBL"%>
+<%@page import="BusinessEntity.CarroBE"%>
+<%@page import="BusinessLogic.CarroBL"%>
 <%
     CarroBL carroBL = new CarroBL();
     List<CarroBE> listaCarros = carroBL.listar();

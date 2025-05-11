@@ -1,4 +1,4 @@
-package BussinesEntity;
+package BusinessEntity;
 
 public class CarroBE {
     private int idCarro;

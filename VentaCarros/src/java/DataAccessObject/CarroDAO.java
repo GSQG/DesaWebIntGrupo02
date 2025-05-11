@@ -1,10 +1,10 @@
-package DataAccesObject;
+package DataAccessObject;
 
-import BussinesEntity.CarroBE;
+import BusinessEntity.CarroBE;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class CarroDAO extends ConexionMySQL implements DataAccessObject.IBaseDAO<CarroBE> {
+public class CarroDAO extends ConexionMySQL implements IBaseDAO<CarroBE> {
 
     @Override
     public boolean Create(CarroBE carro) {

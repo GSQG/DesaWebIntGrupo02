@@ -1,7 +1,7 @@
-package BussinesLogic;
+package BusinessLogic;
 
-import BussinesEntity.CarroBE;
-import DataAccesObject.CarroDAO;
+import BusinessEntity.CarroBE;
+import DataAccessObject.CarroDAO;
 import java.util.List;
 
 public class CarroBL {

@@ -1,4 +1,4 @@
-package DataAccesObject;
+package DataAccessObject;
 
 import java.sql.DriverManager;
 import java.sql.DatabaseMetaData;
