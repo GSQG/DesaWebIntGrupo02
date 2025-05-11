@@ -28,6 +28,8 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <packaging>war</packaging>
+
     <build>
         <plugins>
             <plugin>
@@ -37,7 +39,7 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <directory>src/main/webapp</directory>
+                            <directory>VentaCarros/web</directory>
                         </resource>
                     </webResources>
                 </configuration>
