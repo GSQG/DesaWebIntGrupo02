@@ -9,6 +9,4 @@ public class UsuarioBL {
         UsuarioDAO dao = new UsuarioDAO();
         return dao.ReadAll();
     }
-
-    // Otros métodos: registrar, editar, etc.
 }
