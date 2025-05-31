@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0">
+    <display-name>Ventas de Carros</display-name>
+
+    <servlet>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <servlet-class>Services.UsuarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioServlet</servlet-name>
+        <url-pattern>/Usuario.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClienteServlet</servlet-name>
+        <servlet-class>Services.ClienteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClienteServlet</servlet-name>
+        <url-pattern>/Cliente.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ModeloServlet</servlet-name>
+        <servlet-class>Services.ModeloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModeloServlet</servlet-name>
+        <url-pattern>/Modelo.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CarroServlet</servlet-name>
+        <servlet-class>Services.CarroServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CarroServlet</servlet-name>
+        <url-pattern>/Carro.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VentaServlet</servlet-name>
+        <servlet-class>Services.VentaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VentaServlet</servlet-name>
+        <url-pattern>/Venta.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InventarioServlet</servlet-name>
+        <servlet-class>Services.InventarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InventarioServlet</servlet-name>
+        <url-pattern>/Inventario.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DetalleVentaServlet</servlet-name>
+        <servlet-class>Services.DetalleVentaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetalleVentaServlet</servlet-name>
+        <url-pattern>/DetalleVenta.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MetodoPagoServlet</servlet-name>
+        <servlet-class>Services.MetodoPagoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MetodoPagoServlet</servlet-name>
+        <url-pattern>/MetodoPago.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PagoServlet</servlet-name>
+        <servlet-class>Services.PagoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PagoServlet</servlet-name>
+        <url-pattern>/Pago.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ConfirmacionVentaServlet</servlet-name>
+        <servlet-class>Services.ConfirmacionVentaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfirmacionVentaServlet</servlet-name>
+        <url-pattern>/ConfirmacionVenta.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- Configuración de bienvenida -->
+    <welcome-file-list>
+        <welcome-file>usuariolist.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
