@@ -50,6 +50,8 @@
                 <li class="nav-item"><a class="nav-link" href="inventariolist.jsp">Inventario</a></li>
                 <li class="nav-item"><a class="nav-link" href="ventalist.jsp">Ventas</a></li>
                 <li class="nav-item"><a class="nav-link" href="usuariolist.jsp">Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="sedelist.jsp">Sedes</a></li>
+
             </ul>
         </div>
     </div>
