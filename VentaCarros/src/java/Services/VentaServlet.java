@@ -20,5 +20,4 @@ public class VentaServlet extends HttpServlet {
         }
     }
 
-    // Se pueden implementar doPost, doPut, doDelete según se requiera.
 }

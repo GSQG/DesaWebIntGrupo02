@@ -94,6 +94,6 @@
 
     <!-- Configuración de bienvenida -->
     <welcome-file-list>
-        <welcome-file>usuariolist.jsp</welcome-file>
+        <welcome-file>inventariolist.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
