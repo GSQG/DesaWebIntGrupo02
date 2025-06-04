@@ -26,20 +26,27 @@
         <tbody>
         <%
             List<ConfirmacionVentaBE> listaConf = (List<ConfirmacionVentaBE>) request.getAttribute("listaConfirmaciones");
-            if(listaConf != null){
-                for(ConfirmacionVentaBE c : listaConf){
+
+            if (listaConf == null || listaConf.isEmpty()) {
         %>
-        <tr>
-            <td>
-                <a href="ConfirmacionVenta.do?accion=delete&id=<%=c.getIdConfirmacion()%>" class="btn btn-danger btn-sm">Eliminar</a>
-                <a href="confirmacionventaform.jsp?accion=edit&id=<%=c.getIdConfirmacion()%>" class="btn btn-primary btn-sm">Editar</a>
-            </td>
-            <td><%= c.getIdConfirmacion() %></td>
-            <td><%= c.getIdVenta() %></td>
-            <td><%= c.getFechaConfirmacion() != null ? c.getFechaConfirmacion() : "" %></td>
-            <td><%= c.getEstado() %></td>
-            <td><%= c.getObservaciones() %></td>
-        </tr>
+            <tr>
+                <td colspan="6" class="text-center text-warning">No hay confirmaciones registradas</td>
+            </tr>
+        <%
+            } else {
+                for (ConfirmacionVentaBE c : listaConf) {
+        %>
+            <tr>
+                <td>
+                    <a href="ConfirmacionVenta.do?accion=delete&id=<%=c.getIdConfirmacion()%>" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="confirmacionventaform.jsp?accion=edit&id=<%=c.getIdConfirmacion()%>" class="btn btn-primary btn-sm">Editar</a>
+                </td>
+                <td><%= c.getIdConfirmacion() %></td>
+                <td><%= c.getIdVenta() %></td>
+                <td><%= c.getFechaConfirmacion() != null ? c.getFechaConfirmacion() : "No disponible" %></td>
+                <td><%= c.getEstado() %></td>
+                <td><%= c.getObservaciones() %></td>
+            </tr>
         <%
                 }
             }

@@ -22,10 +22,8 @@ public class ClienteServlet extends HttpServlet {
             String id = request.getParameter("id");
             ClienteBL bl = new ClienteBL();
             bl.eliminar(id);
-            // Después de eliminar redirigimos al listado
             response.sendRedirect("Cliente.do");
         } else {
-            // Por defecto, listamos los clientes
             ClienteBL bl = new ClienteBL();
             List<ClienteBE> lista = bl.listar();
             request.setAttribute("listaClientes", lista);
@@ -39,8 +37,6 @@ public class ClienteServlet extends HttpServlet {
         String accion = request.getParameter("accion");
         ClienteBL bl = new ClienteBL();
         ClienteBE cliente = new ClienteBE();
-
-        // Recopilamos los datos del formulario
         cliente.setNombres(request.getParameter("nombres"));
         cliente.setApellidos(request.getParameter("apellidos"));
         cliente.setEmail(request.getParameter("email"));
@@ -48,8 +44,6 @@ public class ClienteServlet extends HttpServlet {
         cliente.setDireccion(request.getParameter("direccion"));
         cliente.setPreferenciaContacto(request.getParameter("preferenciaContacto"));
         cliente.setObservaciones(request.getParameter("observaciones"));
-        // Nota: Para la fecha, normalmente se hace conversión, aquí la omitimos para simplificar.
-
         if(accion.equalsIgnoreCase("insertar")){
             bl.registrar(cliente);
         } else if(accion.equalsIgnoreCase("actualizar")){
