@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.sql.Connection;
 
 public class ConexionMySQL {
-    private String conexionURL = "jdbc:mysql://b8ro93vd0ut4z7efwbni-mysql.services.clever-cloud.com:3306/b8ro93vd0ut4z7efwbni?useSSL=false&allowPublicKeyRetrieval=true";
-    private String usuario = "ubuygsynfn4ovpdd";
-    private String contrasena = "6UMdhS1xK1Md1aBZTEoB";
+    private String conexionURL = "jdbc:mysql://root:biELFcrKtEwurceoJGOuTlpjtTKdjzuI@metro.proxy.rlwy.net:41093/railway";
+    private String usuario = "root";
+    private String contrasena = "biELFcrKtEwurceoJGOuTlpjtTKdjzuI";
     private Connection conexion;
 
     public static void main(String[] args){
