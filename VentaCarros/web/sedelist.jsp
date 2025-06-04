@@ -18,7 +18,7 @@
 <div class="container">
     <h1>Listado de Sedes</h1>
     <div class="mb-3">
-        <a href="sedes.jsp" class="btn btn-success">
+        <a href="sedeform.jsp" class="btn btn-success">
             <i class="fa fa-plus"></i> Agregar Sede
         </a>
     </div>
