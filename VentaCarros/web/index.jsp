@@ -45,11 +45,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="carrolist.jsp">Crear Cuenta</a></li>
-                <li class="nav-item"><a class="nav-link" href="clientelist.jsp">Iniciar Sesión</a></li>
+                <li class="nav-item"><a class="nav-link" href="carrolist.jsp">Carros</a></li>
+                <li class="nav-item"><a class="nav-link" href="clientelist.jsp">Clientes</a></li>
                 <li class="nav-item"><a class="nav-link" href="inventariolist.jsp">Inventario</a></li>
                 <li class="nav-item"><a class="nav-link" href="ventalist.jsp">Ventas</a></li>
                 <li class="nav-item"><a class="nav-link" href="usuariolist.jsp">Usuarios</a></li>
+                <li class="nav-item"><a class="nav-link" href="sedelist.jsp">Sedes</a></li>
+
             </ul>
         </div>
     </div>
