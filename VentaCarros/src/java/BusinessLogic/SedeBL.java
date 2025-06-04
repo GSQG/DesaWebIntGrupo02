@@ -9,5 +9,4 @@ public class SedeBL {
         SedeDAO dao = new SedeDAO();
         return dao.ReadAll();
     }
-
 }

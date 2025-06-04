@@ -64,8 +64,10 @@ public class SedeDAO extends ConexionMySQL implements IBaseDAO<SedeBE> {
                 sede.setEstado(rs.getString("estado"));
                 listaSedes.add(sede);
             }
+            System.out.println("Cantidad de sedes leídas: " + listaSedes.size());
         } catch (SQLException e) {
             System.out.println("Error en ReadAll: " + e.getMessage());
+            e.printStackTrace();
         }
         return listaSedes;
     }
