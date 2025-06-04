@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String accion = request.getParameter("accion");
+    if (accion == null || accion.trim().isEmpty()) {
+        accion = "nuevo";
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -14,9 +17,15 @@
     <h1><%= accion.equalsIgnoreCase("edit") ? "Editar Sede" : "Nueva Sede" %></h1>
     <form action="Sede.do" method="post">
         <input type="hidden" name="accion" value="<%= accion.equalsIgnoreCase("edit") ? "actualizar" : "insertar" %>">
-        <% if(accion.equalsIgnoreCase("edit")) { %>
-            <input type="hidden" name="idSede" value="<%= request.getParameter("id") %>">
-        <% } %>
+
+        <% if(accion.equalsIgnoreCase("edit")) {
+            String idSede = request.getParameter("id");
+            if (idSede != null && !idSede.trim().isEmpty()) { %>
+                <input type="hidden" name="idSede" value="<%= idSede %>">
+            <% } else { %>
+                <p class="text-danger">ID de la sede no especificado.</p>
+            <% }
+        } %>
 
         <div class="mb-3">
             <label class="form-label">Nombre</label>
