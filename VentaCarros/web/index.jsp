@@ -72,7 +72,7 @@
             <div class="card text-center">
                 <div class="card-body">
                     <i class="fa fa-car fa-3x mb-3"></i>
-                    <h5 class="card-title">ID Modelo: <%= carro.getIdModelo() %></h5>
+                    <h5 class="card-title">Modelo: <%= carro.getNombre() %></h5>
                     <p class="card-text">Año: <%= carro.getAno() %></p>
                     <p class="card-text">Color: <%= carro.getColor() %></p>
                     <p class="card-text">Precio: S/. <%= carro.getPrecioLista() %></p>
