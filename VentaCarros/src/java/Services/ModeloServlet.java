@@ -19,5 +19,4 @@ public class ModeloServlet extends HttpServlet {
         }
     }
 
-    // Se pueden implementar doPost, doPut y doDelete según sea necesario.
 }
