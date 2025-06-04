@@ -10,19 +10,20 @@ public class CarroDAO extends ConexionMySQL implements IBaseDAO<CarroBE> {
     public boolean Create(CarroBE carro) {
         boolean resultado = false;
         try {
-            String SQL = "INSERT INTO Carros (id_modelo, ano, color, precio_lista, estado, descripcion, kilometraje, tipo_combustible, transmision, talla_ruedas, comentarios) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            String SQL = "INSERT INTO Carros (id_modelo, nombre, ano, color, precio_lista, estado, descripcion, kilometraje, tipo_combustible, transmision, talla_ruedas, comentarios) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = getConexion().prepareStatement(SQL);
             pst.setInt(1, carro.getIdModelo());
-            pst.setInt(2, carro.getAno());
-            pst.setString(3, carro.getColor());
-            pst.setDouble(4, carro.getPrecioLista());
-            pst.setString(5, carro.getEstado());
-            pst.setString(6, carro.getDescripcion());
-            pst.setInt(7, carro.getKilometraje());
-            pst.setString(8, carro.getTipoCombustible());
-            pst.setString(9, carro.getTransmision());
-            pst.setString(10, carro.getTallaRuedas());
-            pst.setString(11, carro.getComentarios());
+            pst.setString(2, carro.getNombre());
+            pst.setInt(3, carro.getAno());
+            pst.setString(4, carro.getColor());
+            pst.setDouble(5, carro.getPrecioLista());
+            pst.setString(6, carro.getEstado());
+            pst.setString(7, carro.getDescripcion());
+            pst.setInt(8, carro.getKilometraje());
+            pst.setString(9, carro.getTipoCombustible());
+            pst.setString(10, carro.getTransmision());
+            pst.setString(11, carro.getTallaRuedas());
+            pst.setString(12, carro.getComentarios());
             resultado = pst.executeUpdate() > 0;
         } catch (SQLException e) {
             System.out.println("Error en Create: " + e.getMessage());
@@ -40,6 +41,7 @@ public class CarroDAO extends ConexionMySQL implements IBaseDAO<CarroBE> {
             if (rs.next()) {
                 carro.setIdCarro(rs.getInt("id_carro"));
                 carro.setIdModelo(rs.getInt("id_modelo"));
+                carro.setNombre(rs.getString("nombre"));
                 carro.setAno(rs.getInt("ano"));
                 carro.setColor(rs.getString("color"));
                 carro.setPrecioLista(rs.getDouble("precio_lista"));
@@ -67,6 +69,7 @@ public class CarroDAO extends ConexionMySQL implements IBaseDAO<CarroBE> {
                 CarroBE carro = new CarroBE();
                 carro.setIdCarro(rs.getInt("id_carro"));
                 carro.setIdModelo(rs.getInt("id_modelo"));
+                carro.setNombre(rs.getString("nombre"));
                 carro.setAno(rs.getInt("ano"));
                 carro.setColor(rs.getString("color"));
                 carro.setPrecioLista(rs.getDouble("precio_lista"));
@@ -89,20 +92,21 @@ public class CarroDAO extends ConexionMySQL implements IBaseDAO<CarroBE> {
     public boolean Update(CarroBE carro) {
         boolean resultado = false;
         try {
-            String SQL = "UPDATE Carros SET id_modelo=?, ano=?, color=?, precio_lista=?, estado=?, descripcion=?, kilometraje=?, tipo_combustible=?, transmision=?, talla_ruedas=?, comentarios=? WHERE id_carro=?";
+            String SQL = "UPDATE Carros SET id_modelo=?, nombre=?, ano=?, color=?, precio_lista=?, estado=?, descripcion=?, kilometraje=?, tipo_combustible=?, transmision=?, talla_ruedas=?, comentarios=? WHERE id_carro=?";
             PreparedStatement pst = getConexion().prepareStatement(SQL);
             pst.setInt(1, carro.getIdModelo());
-            pst.setInt(2, carro.getAno());
-            pst.setString(3, carro.getColor());
-            pst.setDouble(4, carro.getPrecioLista());
-            pst.setString(5, carro.getEstado());
-            pst.setString(6, carro.getDescripcion());
-            pst.setInt(7, carro.getKilometraje());
-            pst.setString(8, carro.getTipoCombustible());
-            pst.setString(9, carro.getTransmision());
-            pst.setString(10, carro.getTallaRuedas());
-            pst.setString(11, carro.getComentarios());
-            pst.setInt(12, carro.getIdCarro());
+            pst.setString(2, carro.getNombre());
+            pst.setInt(3, carro.getAno());
+            pst.setString(4, carro.getColor());
+            pst.setDouble(5, carro.getPrecioLista());
+            pst.setString(6, carro.getEstado());
+            pst.setString(7, carro.getDescripcion());
+            pst.setInt(8, carro.getKilometraje());
+            pst.setString(9, carro.getTipoCombustible());
+            pst.setString(10, carro.getTransmision());
+            pst.setString(11, carro.getTallaRuedas());
+            pst.setString(12, carro.getComentarios());
+            pst.setInt(13, carro.getIdCarro());
             resultado = pst.executeUpdate() > 0;
         } catch (SQLException e) {
             System.out.println("Error en Update: " + e.getMessage());
