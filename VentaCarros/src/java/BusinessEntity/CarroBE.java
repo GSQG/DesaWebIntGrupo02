@@ -13,6 +13,7 @@ public class CarroBE {
     private String transmision;
     private String tallaRuedas;
     private String comentarios;
+    private String nombre;
 
     public int getIdCarro() {
         return idCarro;
@@ -20,6 +21,14 @@ public class CarroBE {
 
     public void setIdCarro(int idCarro) {
         this.idCarro = idCarro;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public int getIdModelo() {

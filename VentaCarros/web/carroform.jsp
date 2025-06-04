@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String accion = request.getParameter("accion");
+    if(accion == null || accion.trim().isEmpty()){
+        accion = "nuevo";
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -15,12 +18,15 @@
     <form action="Carro.do" method="post">
         <input type="hidden" name="accion" value="<%= accion.equalsIgnoreCase("edit") ? "actualizar" : "insertar" %>">
         <% if(accion.equalsIgnoreCase("edit")) { %>
-        <input type="hidden" name="idCarro" value="<%= request.getParameter("id") %>">
+            <input type="hidden" name="idCarro" value="<%= request.getParameter("id") %>">
         <% } %>
         <div class="mb-3">
             <label class="form-label">ID Modelo</label>
-            <!-- En un sistema real, se puede usar un dropdown con los modelos disponibles -->
             <input type="number" name="idModelo" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-control" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Color</label>
