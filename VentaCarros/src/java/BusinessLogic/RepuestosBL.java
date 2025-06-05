@@ -11,6 +11,10 @@ public class RepuestosBL {
         this.dao = dao;
     }
 
+    public RepuestosBL() {
+        this.dao = new RepuestosDAO();
+    }
+
     public List<RepuestosBE> listar() {
         try {
             return dao.ReadAll();
