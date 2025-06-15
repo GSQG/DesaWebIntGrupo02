@@ -101,6 +101,15 @@
         <url-pattern>/Sede.do</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RespuestaRapidaServlet</servlet-name>
+        <servlet-class>Services.RespuestaRapidaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RespuestaRapidaServlet</servlet-name>
+        <url-pattern>/respuestasRapidas.do</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
