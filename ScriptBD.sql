@@ -212,6 +212,12 @@ CREATE TABLE Repuestos (
     compatibilidad VARCHAR(50)
 );
 
+CREATE TABLE RespuestasRapidas (
+    idRespuesta INT AUTO_INCREMENT PRIMARY KEY,
+    pregunta VARCHAR(255) NOT NULL,
+    respuesta TEXT NOT NULL
+);
+
 -- Esto es solo un trigger para actualziar los inventarios
 DELIMITER $$
 CREATE TRIGGER trg_actualizar_inventario
