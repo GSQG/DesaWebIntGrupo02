@@ -32,6 +32,33 @@ public class RespuestaDAO {
         return resultado;
     }
 
+    public boolean actualizarRespuesta(int idRespuesta, String respuesta) {
+        boolean resultado = false;
+        Connection conexion = null;
+        PreparedStatement pstmt = null;
+        try {
+            conexion = new ConexionMySQL().getConexion();
+            String sql = "UPDATE RespuestasRapidas SET respuesta = ? WHERE idRespuesta = ?";
+            pstmt = conexion.prepareStatement(sql);
+            pstmt.setString(1, respuesta);
+            pstmt.setInt(2, idRespuesta);
+            int filas = pstmt.executeUpdate();
+            if (filas > 0) {
+                resultado = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) pstmt.close();
+                if (conexion != null) conexion.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultado;
+    }
+
     public String obtenerUltimoMensaje() {
         String mensaje = "No hay mensajes";
         Connection conexion = null;
@@ -66,11 +93,38 @@ public class RespuestaDAO {
         ResultSet rs = null;
         try {
             conexion = new ConexionMySQL().getConexion();
-            String sql = "SELECT CONCAT(pregunta, ' -- ', respuesta) AS mensaje FROM RespuestasRapidas ORDER BY idRespuesta DESC";
+            String sql = "SELECT pregunta FROM RespuestasRapidas ORDER BY idRespuesta DESC";
             pstmt = conexion.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while (rs.next()) {
-                mensajes.add(rs.getString("mensaje"));
+                mensajes.add(rs.getString("pregunta"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conexion != null) conexion.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return mensajes;
+    }
+
+    public List<String> listarMensajesRespuestas() {
+        List<String> mensajes = new ArrayList<>();
+        Connection conexion = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            conexion = new ConexionMySQL().getConexion();
+            String sql = "SELECT respuesta FROM RespuestasRapidas ORDER BY idRespuesta DESC";
+            pstmt = conexion.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                mensajes.add(rs.getString("respuesta"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

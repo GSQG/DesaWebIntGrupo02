@@ -6,21 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Mensajes en Cascada</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Estilos simples para la burbuja de mensaje */
-        .mensaje {
-            padding: 10px 15px;
-            background: #f1f1f1;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            max-width: 70%;
-        }
-        .mensaje-container {
-            display: flex;
-            flex-direction: column;
-        }
+        .mensaje { padding: 15px; border-radius: 10px; }
+        .pregunta { background-color: #1E90FF; border: 1px solid #1C86EE; color: #fff; }
+        .respuesta { background-color: #2ecc71; border: 1px solid #27ae60; color: #fff; }
+        .respuesta-pendiente { background-color: #bdc3c7; border: 1px solid #95a5a6; color: #333; }
+        .mensaje-row { margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -33,19 +25,38 @@
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
-
-    <!-- Sección para mostrar los mensajes -->
     <h2>Historial de mensajes</h2>
-    <div id="listaMensajes" class="mensaje-container">
+    <div id="listaMensajes">
         <%
-            // Crear una instancia del DAO para listar los mensajes al cargar el JSP
             RespuestaDAO dao = new RespuestaDAO();
-            List<String> mensajes = dao.listarMensajes();
-            if(mensajes != null && !mensajes.isEmpty()){
-                for(String msg : mensajes){
+            List<String> preguntas = dao.listarMensajes();
+            List<String> respuestas = dao.listarMensajesRespuestas();
+            if(preguntas != null && !preguntas.isEmpty()){
+                for(int i = 0; i < preguntas.size(); i++){
+                    String preguntaText = preguntas.get(i);
+                    String respuestaText = "";
+                    if(respuestas != null && respuestas.size() > i){
+                        respuestaText = respuestas.get(i);
+                    }
+                    if(respuestaText == null || respuestaText.trim().isEmpty()){
+                        respuestaText = "Pendiente de respuesta";
+                    }
+                    String claseRespuesta = "respuesta";
+                    if("Pendiente de respuesta".equals(respuestaText)){
+                        claseRespuesta = "respuesta-pendiente";
+                    }
         %>
-        <div class="mensaje">
-            <%= msg %>
+        <div class="row mensaje-row">
+            <div class="col-md-6">
+                <div class="mensaje pregunta">
+                    <strong>Pregunta:</strong> <%= preguntaText %>
+                </div>
+            </div>
+            <div class="col-md-6 text-end">
+                <div class="mensaje <%= claseRespuesta %>">
+                    <strong>Respuesta:</strong> <%= respuestaText %>
+                </div>
+            </div>
         </div>
         <%
                 }
@@ -57,34 +68,22 @@
         %>
     </div>
 </div>
-
-<!-- Código de JS para enviar mensaje vía fetch -->
 <script>
     const baseUrl = "<%= request.getContextPath() %>";
-
     document.getElementById("preguntaForm").addEventListener("submit", function(event) {
         event.preventDefault();
         var pregunta = document.getElementById("pregunta").value;
-
         fetch(baseUrl + "/respuestasRapidas.do", {
             method: "POST",
-            body: new URLSearchParams({
-                "pregunta": pregunta
-            })
+            body: new URLSearchParams({ "pregunta": pregunta })
         })
         .then(response => response.text())
-        .then(data => {
-            // Después de enviar, se recarga la lista de mensajes.
-            // Aquí, para simplicidad, vamos a recargar la página.
-            // Alternativamente se podría hacer una llamada AJAX para actualizar solo la sección.
-            location.reload();
-        })
+        .then(data => location.reload())
         .catch(error => {
             console.error("Error en la petición fetch:", error);
             alert("Ocurrió un error al enviar el mensaje.");
         });
     });
 </script>
-
 </body>
 </html>
