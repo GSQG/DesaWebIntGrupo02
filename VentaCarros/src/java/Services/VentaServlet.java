@@ -2,9 +2,9 @@ package Services;
 
 import BusinessLogic.VentaBL;
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "VentaServlet", urlPatterns = {"/Venta.do"})
 public class VentaServlet extends HttpServlet {

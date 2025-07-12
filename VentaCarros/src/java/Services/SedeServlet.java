@@ -4,9 +4,9 @@ import BusinessEntity.SedeBE;
 import BusinessLogic.SedeBL;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "SedeServlet", urlPatterns = {"/Sede.do"})
 public class SedeServlet extends HttpServlet {

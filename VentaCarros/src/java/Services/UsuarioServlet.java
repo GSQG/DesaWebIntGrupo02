@@ -1,9 +1,9 @@
 package Services;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "UsuarioServlet", urlPatterns = {"/Usuario.do"})
 public class UsuarioServlet extends HttpServlet {

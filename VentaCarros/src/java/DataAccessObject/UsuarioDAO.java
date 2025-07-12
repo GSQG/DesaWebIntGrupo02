@@ -124,4 +124,32 @@ public class UsuarioDAO extends ConexionMySQL implements IBaseDAO<UsuarioBE> {
         }
         return resultado;
     }
+
+    public UsuarioBE autenticar(String email, String contrasena) {
+        UsuarioBE usuario = null;
+        try {
+            String SQL = "SELECT * FROM Usuarios WHERE email = ? AND contraseña = ?";
+            PreparedStatement pst = getConexion().prepareStatement(SQL);
+            pst.setString(1, email);
+            pst.setString(2, contrasena);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                usuario = new UsuarioBE();
+                usuario.setIdUsuario(rs.getInt("id_usuario"));
+                usuario.setNombres(rs.getString("nombres"));
+                usuario.setApellidos(rs.getString("apellidos"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setContrasena(rs.getString("contraseña"));
+                usuario.setCelular(rs.getString("celular"));
+                usuario.setRol(rs.getString("rol"));
+                usuario.setFechaNacimiento(rs.getDate("fecha_nacimiento"));
+                usuario.setDireccion(rs.getString("direccion"));
+                usuario.setComentarios(rs.getString("comentarios"));
+                usuario.setFechaCreacion(rs.getTimestamp("fecha_creacion"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en autenticar Usuario: " + e.getMessage());
+        }
+        return usuario;
+    }
 }
