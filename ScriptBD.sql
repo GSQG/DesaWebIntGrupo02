@@ -57,6 +57,7 @@ CREATE TABLE Modelos (
 CREATE TABLE Carros (
   id_carro INT AUTO_INCREMENT PRIMARY KEY,
   id_modelo INT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
   ano INT NOT NULL,
   color VARCHAR(50),
   precio_lista DECIMAL(12,2) NOT NULL,

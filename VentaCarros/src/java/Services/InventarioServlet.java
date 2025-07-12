@@ -4,9 +4,9 @@ import BusinessLogic.InventarioBL;
 import BusinessEntity.InventarioBE;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "InventarioServlet", urlPatterns = {"/Inventario.do"})
 public class InventarioServlet extends HttpServlet {
