@@ -4,9 +4,9 @@ import BusinessLogic.PagoBL;
 import BusinessEntity.PagoBE;
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "PagoServlet", urlPatterns = {"/Pago.do"})
 public class PagoServlet extends HttpServlet {

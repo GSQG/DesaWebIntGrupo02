@@ -5,9 +5,9 @@ import BusinessEntity.ConfirmacionVentaBE;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.*;
 
 @WebServlet(name = "ConfirmacionVentaServlet", urlPatterns = {"/ConfirmacionVenta.do"})
 public class ConfirmacionVentaServlet extends HttpServlet {
