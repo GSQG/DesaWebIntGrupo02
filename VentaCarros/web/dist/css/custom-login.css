@@ -1,0 +1,91 @@
+/*Fondo general claro y neutro*/
+body.login-page {
+  background-color: #ECEFF1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #212121;
+}
+
+/*Caja de login centrada*/
+.login-box {
+  max-width: 400px;
+  margin: auto;
+}
+
+/*Tarjeta blanca con sombra suave*/
+.login-box .card {
+  border: none;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+/*Logo sobrio*/
+.login-logo a {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1A237E;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/*Área del formulario*/
+.login-card-body {
+  background: #ffffff;
+  padding: 2rem;
+}
+
+/*Inputs limpios*/
+.login-card-body .form-control {
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  box-shadow: none;
+}
+
+/*Iconos con azul noche*/
+.input-group-text {
+  background: transparent;
+  border: none;
+  color: #1A237E;
+  font-size: 1.2rem;
+}
+
+/*Botón azul profesional*/
+.btn-primary {
+  background-color: #1A237E;
+  border: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #0D1B5C;
+}
+
+/*Mensajes suaves*/
+.login-card-body p.text-danger,
+.login-card-body p.text-info {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #37474F;
+}
+
+/*Logo profesional centrado*/
+.login-logo a {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1A237E;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
