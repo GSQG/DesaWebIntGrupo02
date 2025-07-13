@@ -23,12 +23,15 @@ public class AuthFilter implements Filter {
         boolean loginPage    = uri.equals(ctx + "/login.jsp");
         boolean loginAction  = uri.equals(ctx + "/LoginServlet");
         boolean logoutAction = uri.equals(ctx + "/LogoutServlet");
-        boolean cssResource  = uri.startsWith(ctx + "/css/");
-        boolean jsResource   = uri.startsWith(ctx + "/js/");
-        boolean imgResource  = uri.startsWith(ctx + "/img/");
+
+        boolean cssResource   = uri.startsWith(ctx + "/css/");
+        boolean jsResource    = uri.startsWith(ctx + "/js/");
+        boolean imgResource   = uri.startsWith(ctx + "/img/");
+        boolean distResource  = uri.startsWith(ctx + "/dist/");
 
         if (loginPage || loginAction || logoutAction
-                || cssResource || jsResource || imgResource) {
+                || cssResource || jsResource
+                || imgResource || distResource) {
             chain.doFilter(request, response);
             return;
         }
