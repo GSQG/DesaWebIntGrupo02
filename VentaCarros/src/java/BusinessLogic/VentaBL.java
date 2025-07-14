@@ -5,9 +5,13 @@ import DataAccessObject.VentaDAO;
 import java.util.List;
 
 public class VentaBL {
-    public List<VentaBE> listar() {
-        VentaDAO dao = new VentaDAO();
-        return dao.ReadAll();
+    private final VentaDAO dao = new VentaDAO();
+
+    public boolean Create(VentaBE venta) {
+        return dao.Create(venta);
     }
 
+    public List<VentaBE> listar() {
+        return dao.ReadAll();
+    }
 }
