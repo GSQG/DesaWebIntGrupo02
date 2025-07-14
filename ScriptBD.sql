@@ -74,6 +74,42 @@ CREATE TABLE Carros (
     ON DELETE RESTRICT
 );
 
+CREATE TABLE VentasRepuestos (
+    id_venta_repuesto INT AUTO_INCREMENT PRIMARY KEY,
+    id_repuesto INT,
+    nombre_cliente VARCHAR(100),
+    direccion VARCHAR(200),
+    telefono VARCHAR(20),
+    medio_pago VARCHAR(20),
+    fecha_vencimiento VARCHAR(10), -- Para tarjeta, formato MM/YY
+    cvv VARCHAR(3),
+    fecha_venta TIMESTAMP,
+    precio_venta DOUBLE,
+    nombre_repuesto VARCHAR(100),
+    marca_repuesto VARCHAR(50),
+    compatibilidad_repuesto VARCHAR(100),
+    cantidad INT,
+    FOREIGN KEY (id_repuesto) REFERENCES Repuestos(id_repuesto)
+);
+CREATE TABLE VentasCarros (
+  id_venta INT AUTO_INCREMENT PRIMARY KEY,
+  id_carro INT NOT NULL,
+  nombre_cliente VARCHAR(100) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  telefono VARCHAR(20) NOT NULL,
+  medio_pago VARCHAR(50) NOT NULL,
+  fecha_vencimiento VARCHAR(10),
+  cvv VARCHAR(4),
+  fecha_venta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  precio_venta DECIMAL(12,2) NOT NULL,
+  modelo_carro VARCHAR(100) NOT NULL,
+  ano_carro INT NOT NULL,
+  color_carro VARCHAR(50),
+  estado_carro VARCHAR(50),
+  kilometraje_carro INT,
+  tipo_combustible_carro VARCHAR(50),
+  transmision_carro VARCHAR(50)
+);
 -- Tambien para las imagenenes, tendriamos que ver que el server tenga suficiente espacio para esto...
 CREATE TABLE ImagenesCarros (
   id_imagen INT AUTO_INCREMENT PRIMARY KEY,

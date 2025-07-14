@@ -1,0 +1,8 @@
+body.fondo-principal {
+  background-image: url('../images/fondoCompra.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', sans-serif;
+}

@@ -1,17 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
   <head>
-    <title>Venta de Carros</title>
+    <title>Deluxe Drive</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <jsp:include page="include_css.jsp"/>
     <link href="dist/css/adminlte.css" rel="stylesheet" type="text/css"/>
     <link href="dist/css/custom-login.css" rel="stylesheet" type="text/css"/>
+    <style>
+          body.login-page {
+            background-image: url('dist/images/fondoCompra.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          }
+        </style>
+
   </head>
   <body class="login-page bg-body-secondary">
     <div class="login-box">
     <div class="login-logo">
-      <a href="#"><span class="text-bold">Venta de Carros</span></a>
+      <a href="#"><span class="text-bold">Deluxe Drive</span></a>
     </div>
       <div class="card">
         <div class="card-body login-card-body">
