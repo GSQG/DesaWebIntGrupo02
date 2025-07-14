@@ -7,6 +7,16 @@
     <jsp:include page="include_css.jsp"/>
     <link href="dist/css/adminlte.css" rel="stylesheet" type="text/css"/>
     <link href="dist/css/custom-login.css" rel="stylesheet" type="text/css"/>
+    <style>
+          body.login-page {
+            background-image: url('dist/images/fondoCompra.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          }
+        </style>
+
   </head>
   <body class="login-page bg-body-secondary">
     <div class="login-box">
