@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 
 @WebFilter("/*")
 public class AuthFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException { }
 
@@ -15,7 +16,7 @@ public class AuthFilter implements Filter {
                          FilterChain chain)
             throws IOException, ServletException {
 
-        HttpServletRequest  req  = (HttpServletRequest)  request;
+        HttpServletRequest req  = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         String uri = req.getRequestURI();
         String ctx = req.getContextPath();
@@ -24,14 +25,17 @@ public class AuthFilter implements Filter {
         boolean loginAction  = uri.equals(ctx + "/LoginServlet");
         boolean logoutAction = uri.equals(ctx + "/LogoutServlet");
 
-        boolean cssResource   = uri.startsWith(ctx + "/css/");
-        boolean jsResource    = uri.startsWith(ctx + "/js/");
-        boolean imgResource   = uri.startsWith(ctx + "/img/");
-        boolean distResource  = uri.startsWith(ctx + "/dist/");
+        boolean cssResource  = uri.startsWith(ctx + "/css/");
+        boolean jsResource   = uri.startsWith(ctx + "/js/");
+        boolean imgResource  = uri.startsWith(ctx + "/img/");
+        boolean distResource = uri.startsWith(ctx + "/dist/");
+
+        boolean isAjax = "XMLHttpRequest".equals(req.getHeader("X-Requested-With"));
+        boolean ajaxCarro = uri.startsWith(ctx + "/Carro.do") && isAjax;
 
         if (loginPage || loginAction || logoutAction
-                || cssResource || jsResource
-                || imgResource || distResource) {
+                || cssResource || jsResource || imgResource || distResource
+                || ajaxCarro) {
             chain.doFilter(request, response);
             return;
         }
