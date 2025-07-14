@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Carros en Venta</title>
+    <title>Deluxe Drive</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link href="dist/css/estilos-generales.css" rel="stylesheet" type="text/css"/>
@@ -32,7 +32,7 @@
 %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.jsp">Carros en Venta</a>
+        <a class="navbar-brand" href="index.jsp">Deluxe Drive</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -60,7 +60,7 @@
     </div>
 </nav>
 <div class="container">
-    <h1 class="text-center">Listado de Carros en Venta</h1>
+    <h1 class="text-center">Listado de Deluxe Drive</h1>
     <div class="row">
         <%
             if (listaCarros == null || listaCarros.isEmpty()) {
