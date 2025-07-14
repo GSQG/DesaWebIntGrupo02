@@ -7,10 +7,10 @@
     <title>Carros en Venta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="dist/css/estilos-generales.css" rel="stylesheet" type="text/css"/>
     <style>
-        body { background-color: #f8f9fa; }
         .container {
-            max-width: 1000px;
+            width: 70%;
             margin-top: 50px;
             background: #ffffff;
             padding: 30px;
@@ -23,7 +23,8 @@
         .modal-content { border-radius: 10px; }
     </style>
 </head>
-<body>
+
+<body class="fondo-principal">
 <%
     CarroBL carroBL = new CarroBL();
     List<CarroBE> listaCarros = carroBL.listar();
