@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.List"%>
 <%@page import="BusinessEntity.UsuarioBE"%>
 <%@page import="BusinessLogic.UsuarioBL"%>
@@ -44,7 +45,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <span class="navbar-text text-light me-2">Hola, <%= usuarioLogueado %> (<%= rolUsuario %>)</span>
+                    <span class="navbar-text text-light me-2">Hola, <%= usuarioLogueado %></span>
                 </li>
                 <li class="nav-item">
                     <a class="btn btn-outline-light" href="<%= request.getContextPath() %>/LogoutServlet">
@@ -90,7 +91,7 @@
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="contrasena" class="form-label">Clave</label>
+                                <label for="contrasena" class="form-label">Contraseña</label>
                                 <input type="password" class="form-control" id="contrasena" name="contrasena" required>
                             </div>
                             <div class="col-md-6">
@@ -111,7 +112,7 @@
                                 <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
                             </div>
                             <div class="col-md-6">
-                                <label for="direccion" class="form-label">Direccion</label>
+                                <label for="direccion" class="form-label">Dirección</label>
                                 <input type="text" class="form-control" id="direccion" name="direccion">
                             </div>
                             <div class="col-12">
