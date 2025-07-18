@@ -48,7 +48,7 @@ public class VentaRepuestoDAO extends ConexionMySQL implements IBaseDAO<VentaRep
             ResultSet rs = stm.executeQuery("SELECT * FROM VentasRepuestos");
             while (rs.next()) {
                 VentaRepuestoBE venta = new VentaRepuestoBE();
-                venta.setIdVenta(rs.getInt("id_venta"));
+                venta.setIdVenta(rs.getInt("id_venta_repuesto"));
                 venta.setIdRepuesto(rs.getInt("id_repuesto"));
                 venta.setNombreCliente(rs.getString("nombre_cliente"));
                 venta.setDireccion(rs.getString("direccion"));
