@@ -23,10 +23,10 @@ public class LoginServlet extends HttpServlet {
         if (isJson) {
             BufferedReader reader = req.getReader();
             UsuarioBE loginData = new Gson().fromJson(reader, UsuarioBE.class);
-            usuario    = loginData.getEmail();
+            usuario = loginData.getEmail();
             contrasena = loginData.getContrasena();
         } else {
-            usuario    = req.getParameter("username");
+            usuario = req.getParameter("username");
             contrasena = req.getParameter("password");
         }
 
@@ -39,6 +39,23 @@ public class LoginServlet extends HttpServlet {
             String nombreCompleto = user.getNombres() + " " + user.getApellidos();
             session.setAttribute("usuarioLogueado", nombreCompleto);
             session.setAttribute("rol", user.getRol());
+
+            String recordar = req.getParameter("recordar");
+            System.out.println("Valor de recordar: " + recordar);
+
+            Cookie cookieEmail = new Cookie("usuarioRecordado", "");
+            cookieEmail.setPath("/");
+
+            if ("on".equals(recordar)) {
+                cookieEmail.setValue(usuario);
+                cookieEmail.setMaxAge(7 * 24 * 60 * 60);
+                System.out.println("Cookie creada con email: " + usuario);
+            } else {
+                cookieEmail.setMaxAge(0);
+                System.out.println("Cookie eliminada (no se marcó)");
+            }
+
+            resp.addCookie(cookieEmail);
 
             if (isJson) {
                 resp.setContentType("application/json");

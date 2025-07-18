@@ -33,15 +33,15 @@
           <% } %>
           <form action="LoginServlet" method="post" autocomplete="on">
             <div class="input-group mb-3">
-              <input type="email" name="username" class="form-control" placeholder="Email"
-                     autocomplete="username" required />
-              <div class="input-group-text"><span class="bi bi-envelope"></span></div>
-            </div>
-            <div class="input-group mb-3">
-              <input type="password" name="password" class="form-control" placeholder="Contraseña"
-                     autocomplete="current-password" required />
-              <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
-            </div>
+                <input type="email" name="username" class="form-control" placeholder="Email"
+                       autocomplete="email" required />
+                <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Contraseña"
+                       autocomplete="current-password" required />
+                <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+              </div>
             <div class="row">
               <div class="col-8">
                 <div class="form-check">
