@@ -36,9 +36,9 @@
             width: 100%;
         }
     </style>
+    <link href="dist/css/estilos-generales.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-
+<body class="fondo-principal">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp">Repuestos</a>
@@ -152,17 +152,19 @@
                     <div id="tarjetaFields" style="display:none;">
                         <div class="mb-3">
                             <label class="form-label">Número de Tarjeta</label>
-                            <input type="text" class="form-control" name="numeroTarjeta" id="numeroTarjeta" autocomplete="off">
+                            <input type="text" class="form-control" name="numeroTarjeta"
+                                   autocomplete="cc-number" placeholder="0000 0000 0000 0000">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Fecha Vencimiento</label>
-                            <input type="text" class="form-control" name="fechaVencimiento" placeholder="MM/YY">
+                            <input type="text" class="form-control" name="fechaVencimiento"
+                                   autocomplete="cc-exp" placeholder="MM/AA">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">CVV</label>
-                            <input type="text" class="form-control" name="cvv" maxlength="3">
+                            <input type="text" class="form-control" name="cvv"
+                                   autocomplete="cc-csc" maxlength="3">
                         </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

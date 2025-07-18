@@ -151,16 +151,18 @@
                         <div class="row mb-3">
                             <div class="col-md-8">
                                 <label class="form-label">Número de Tarjeta</label>
-                                <input type="text" class="form-control" name="numeroTarjeta" autocomplete="off">
-                            </div>
+                                <input type="text" class="form-control" name="numeroTarjeta"
+                                   autocomplete="cc-number" placeholder="0000 0000 0000 0000">                            </div>
                             <div class="col-md-4">
                                 <label class="form-label">CVV</label>
-                                <input type="text" class="form-control" name="cvv" autocomplete="off">
+                                <input type="text" class="form-control" name="cvv"
+                                   autocomplete="cc-csc" maxlength="3">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Fecha de Vencimiento (MM/YY)</label>
-                            <input type="text" class="form-control" name="fechaVencimiento" autocomplete="off">
+                            <input type="text" class="form-control" name="fechaVencimiento"
+                                autocomplete="cc-exp" placeholder="MM/AA">
                         </div>
                     </div>
                 </form>
