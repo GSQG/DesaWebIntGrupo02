@@ -10,7 +10,22 @@
         <servlet-name>UsuarioServlet</servlet-name>
         <url-pattern>/Usuario.do</url-pattern>
     </servlet-mapping>
-
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ignore</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>Services.ClienteServlet</servlet-class>

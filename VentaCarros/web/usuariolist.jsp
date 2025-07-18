@@ -90,7 +90,7 @@
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="contrasena" class="form-label">Contraseña</label>
+                                <label for="contrasena" class="form-label">Clave</label>
                                 <input type="password" class="form-control" id="contrasena" name="contrasena" required>
                             </div>
                             <div class="col-md-6">
@@ -111,7 +111,7 @@
                                 <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
                             </div>
                             <div class="col-md-6">
-                                <label for="direccion" class="form-label">Dirección</label>
+                                <label for="direccion" class="form-label">Direccion</label>
                                 <input type="text" class="form-control" id="direccion" name="direccion">
                             </div>
                             <div class="col-12">
