@@ -19,7 +19,7 @@
     <title><%= accion.equals("actualizar") ? "Editar Carro" : "Nuevo Carro" %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="fondo-principal">
 <div class="container">
     <h1><%= accion.equals("actualizar") ? "Editar Carro" : "Nuevo Carro" %></h1>
     <form action="Carro.do" method="post">

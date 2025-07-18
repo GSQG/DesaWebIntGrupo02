@@ -33,7 +33,7 @@
         }
     </style>
 </head>
-<body>
+<body class="fondo-principal">
 <div class="container">
     <h1 class="text-center"><%= accion.equalsIgnoreCase("edit") ? "Editar Venta" : "Nueva Venta" %></h1>
     <form action="Venta.do" method="post">

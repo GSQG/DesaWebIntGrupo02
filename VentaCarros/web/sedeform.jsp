@@ -12,7 +12,7 @@
     <title><%= accion.equalsIgnoreCase("edit") ? "Editar Sede" : "Nueva Sede" %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="fondo-principal">
 <div class="container">
     <h1><%= accion.equalsIgnoreCase("edit") ? "Editar Sede" : "Nueva Sede" %></h1>
     <form action="Sede.do" method="post">

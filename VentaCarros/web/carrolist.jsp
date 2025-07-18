@@ -34,7 +34,7 @@
         }
     </script>
 </head>
-<body>
+<body class="fondo-principal">
 <%
     CarroBL carroBL = new CarroBL();
     List<CarroBE> lista = carroBL.listar();

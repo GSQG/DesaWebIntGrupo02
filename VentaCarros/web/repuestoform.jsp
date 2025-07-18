@@ -12,7 +12,7 @@
     <title><%= accion.equalsIgnoreCase("edit") ? "Editar Repuesto" : "Nuevo Repuesto" %></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="fondo-principal">
 <div class="container mt-4">
     <h1 class="mb-4"><%= accion.equalsIgnoreCase("edit") ? "Editar Repuesto" : "Nuevo Repuesto" %></h1>
     <form action="Repuestos.do" method="post">

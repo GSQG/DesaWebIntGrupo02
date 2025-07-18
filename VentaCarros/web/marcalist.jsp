@@ -8,7 +8,7 @@
     <title>Listado de Marcas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="fondo-principal">
 <div class="container">
     <h1>Listado de Marcas</h1>
     <a href="marcaform.jsp?accion=insertar" class="btn btn-success mb-3">Nueva Marca</a>
