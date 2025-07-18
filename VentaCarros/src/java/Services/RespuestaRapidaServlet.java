@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import DataAccessObject.RespuestaDAO;
+import org.json.JSONObject;
 
 @WebServlet(name = "RespuestaRapidaServlet", urlPatterns = {"/respuestasRapidas.do"})
 public class RespuestaRapidaServlet extends HttpServlet {
@@ -15,26 +16,36 @@ public class RespuestaRapidaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String pregunta = request.getParameter("pregunta");
-        response.setContentType("text/plain; charset=UTF-8");
+        response.setContentType("application/json; charset=UTF-8");
+        JSONObject jsonResponse = new JSONObject();
 
         if (pregunta != null && !pregunta.trim().isEmpty()) {
             RespuestaDAO dao = new RespuestaDAO();
             boolean insertado = dao.insertarPregunta(pregunta);
-            String mensaje;
+
             if (insertado) {
-                mensaje = dao.obtenerUltimoMensaje();
+                String mensaje = dao.obtenerUltimoMensaje();
+                jsonResponse.put("success", true)
+                        .put("message", mensaje);
             } else {
-                mensaje = "Error al insertar el mensaje.";
+                jsonResponse.put("success", false)
+                        .put("message", "Error al insertar el mensaje");
             }
-            response.getWriter().write(mensaje);
         } else {
-            response.getWriter().write("Pregunta no válida o vacía.");
+            jsonResponse.put("success", false)
+                    .put("message", "Pregunta no válida o vacía");
         }
+
+        response.getWriter().write(jsonResponse.toString());
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        response.setContentType("application/json; charset=UTF-8");
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("success", false)
+                .put("message", "Método GET no soportado. Use POST");
+        response.getWriter().write(jsonResponse.toString());
     }
 }

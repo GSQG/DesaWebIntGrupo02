@@ -3,6 +3,9 @@
 <%@ page import="DataAccessObject.RespuestaDAO" %>
 <!DOCTYPE html>
 <html lang="es">
+<%
+String usuarioLogueado = (String) session.getAttribute("usuarioLogueado");
+%>
 <head>
     <meta charset="UTF-8">
     <title>Mensajes en Cascada</title>
@@ -15,7 +18,36 @@
         .mensaje-row { margin-bottom: 20px; }
     </style>
 </head>
-<body>
+<body class="fondo-principal">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.jsp">Deluxe Drive</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                 <li class="nav-item"><a class="nav-link" href="carrolist.jsp">Carros</a></li>
+                 <li class="nav-item"><a class="nav-link" href="ventalist.jsp">Ventas</a></li>
+                 <li class="nav-item"><a class="nav-link" href="usuariolist.jsp">Usuarios</a></li>
+                 <li class="nav-item"><a class="nav-link" href="sedelist.jsp">Sedes</a></li>
+                 <li class="nav-item"><a class="nav-link" href="comprarrepuesto.jsp">Comprar Repuestos</a></li>
+                 <li class="nav-item"><a class="nav-link" href="repuestolist.jsp">Listado de Repuestos</a></li>
+                 <li class="nav-item"><a class="nav-link" href="respuestasRapidas.jsp">Atencion al cliente</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <span class="navbar-text text-light me-2">Hola, <%= usuarioLogueado %></span>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href="<%= request.getContextPath() %>/LogoutServlet">
+                        Cerrar sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container mt-4">
     <h1 class="mb-4">Envía tu mensaje</h1>
     <form id="preguntaForm" class="mb-4">
@@ -68,6 +100,7 @@
         %>
     </div>
 </div>
+
 <script>
     const baseUrl = "<%= request.getContextPath() %>";
     document.getElementById("preguntaForm").addEventListener("submit", function(event) {

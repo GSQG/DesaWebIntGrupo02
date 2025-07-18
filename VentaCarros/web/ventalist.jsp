@@ -28,7 +28,7 @@
         .badge-repuesto { background-color: #198754; }
     </style>
 </head>
-<body>
+<body class="fondo-principal">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.jsp">Deluxe Drive</a>
