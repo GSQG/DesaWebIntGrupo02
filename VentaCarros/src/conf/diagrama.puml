@@ -1,0 +1,603 @@
+@startuml
+
+' Configuración general
+hide empty members
+skinparam classAttributeIconSize 0
+
+' Paquete BusinessEntity
+package BusinessEntity {
+  class CarroBE {
+    - idCarro: int
+    - idModelo: int
+    - ano: int
+    - color: String
+    - precioLista: double
+    - estado: String
+    - descripcion: String
+    - kilometraje: int
+    - tipoCombustible: String
+    - transmision: String
+    - tallaRuedas: String
+    - comentarios: String
+    - nombre: String
+    + getIdCarro(): int
+    + setIdCarro(idCarro: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getIdModelo(): int
+    + setIdModelo(idModelo: int): void
+    + getAno(): int
+    + setAno(ano: int): void
+    + getColor(): String
+    + setColor(color: String): void
+    + getPrecioLista(): double
+    + setPrecioLista(precioLista: double): void
+    + getEstado(): String
+    + setEstado(estado: String): void
+    + getDescripcion(): String
+    + setDescripcion(descripcion: String): void
+    + getKilometraje(): int
+    + setKilometraje(kilometraje: int): void
+    + getTipoCombustible(): String
+    + setTipoCombustible(tipoCombustible: String): void
+    + getTransmision(): String
+    + setTransmision(transmision: String): void
+    + getTallaRuedas(): String
+    + setTallaRuedas(tallaRuedas: String): void
+    + getComentarios(): String
+    + setComentarios(comentarios: String): void
+  }
+
+  class MarcaBE {
+    - idMarca: int
+    - nombre: String
+    - paisOrigen: String
+    - sitioWeb: String
+    + getIdMarca(): int
+    + setIdMarca(idMarca: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getPaisOrigen(): String
+    + setPaisOrigen(paisOrigen: String): void
+    + getSitioWeb(): String
+    + setSitioWeb(sitioWeb: String): void
+  }
+
+  class ModeloBE {
+    - idModelo: int
+    - idMarca: int
+    - nombre: String
+    - descripcion: String
+    - anoLanzamiento: int
+    - segmento: String
+    + getIdModelo(): int
+    + setIdModelo(idModelo: int): void
+    + getIdMarca(): int
+    + setIdMarca(idMarca: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getDescripcion(): String
+    + setDescripcion(descripcion: String): void
+    + getAnoLanzamiento(): int
+    + setAnoLanzamiento(anoLanzamiento: int): void
+    + getSegmento(): String
+    + setSegmento(segmento: String): void
+  }
+
+  class RepuestosBE {
+    - idRepuesto: int
+    - nombre: String
+    - material: String
+    - marca: String
+    - costo: double
+    - categoria: String
+    - descripcion: String
+    - stock: int
+    - compatibilidad: String
+    + getIdRepuesto(): int
+    + setIdRepuesto(idRepuesto: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getMaterial(): String
+    + setMaterial(material: String): void
+    + getMarca(): String
+    + setMarca(marca: String): void
+    + getCosto(): double
+    + setCosto(costo: double): void
+    + getCategoria(): String
+    + setCategoria(categoria: String): void
+    + getDescripcion(): String
+    + setDescripcion(descripcion: String): void
+    + getStock(): int
+    + setStock(stock: int): void
+    + getCompatibilidad(): String
+    + setCompatibilidad(compatibilidad: String): void
+    + toString(): String
+  }
+
+  class RespuestaBE {
+    - idRespuesta: int
+    - pregunta: String
+    - respuesta: String
+    + getIdRespuesta(): int
+    + setIdRespuesta(idRespuesta: int): void
+    + getPregunta(): String
+    + setPregunta(pregunta: String): void
+    + getRespuesta(): String
+    + setRespuesta(respuesta: String): void
+  }
+
+  class SedeBE {
+    - idSede: int
+    - nombre: String
+    - direccion: String
+    - telefono: String
+    - horario: String
+    - ciudad: String
+    - estado: String
+    + getIdSede(): int
+    + setIdSede(idSede: int): void
+    + getNombre(): String
+    + setNombre(nombre: String): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getTelefono(): String
+    + setTelefono(telefono: String): void
+    + getHorario(): String
+    + setHorario(horario: String): void
+    + getCiudad(): String
+    + setCiudad(ciudad: String): void
+    + getEstado(): String
+    + setEstado(estado: String): void
+  }
+
+  class UsuarioBE {
+    - idUsuario: int
+    - nombres: String
+    - apellidos: String
+    - email: String
+    - contrasena: String
+    - celular: String
+    - rol: String
+    - fechaNacimiento: Date
+    - direccion: String
+    - comentarios: String
+    - fechaCreacion: Timestamp
+    + getIdUsuario(): int
+    + setIdUsuario(idUsuario: int): void
+    + getNombres(): String
+    + setNombres(nombres: String): void
+    + getApellidos(): String
+    + setApellidos(apellidos: String): void
+    + getEmail(): String
+    + setEmail(email: String): void
+    + getContrasena(): String
+    + setContrasena(contrasena: String): void
+    + getCelular(): String
+    + setCelular(celular: String): void
+    + getRol(): String
+    + setRol(rol: String): void
+    + getFechaNacimiento(): Date
+    + setFechaNacimiento(fechaNacimiento: Date): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getComentarios(): String
+    + setComentarios(comentarios: String): void
+    + getFechaCreacion(): Timestamp
+    + setFechaCreacion(fechaCreacion: Timestamp): void
+  }
+
+  class VentaBE {
+    - idVenta: int
+    - idCarro: int
+    - nombreCliente: String
+    - direccion: String
+    - telefono: String
+    - medioPago: String
+    - fechaVencimiento: String
+    - cvv: String
+    - fechaVenta: Timestamp
+    - precioVenta: double
+    - modeloCarro: String
+    - anoCarro: int
+    - colorCarro: String
+    - estadoCarro: String
+    - kilometrajeCarro: int
+    - tipoCombustibleCarro: String
+    - transmisionCarro: String
+    + getIdVenta(): int
+    + setIdVenta(idVenta: int): void
+    + getIdCarro(): int
+    + setIdCarro(idCarro: int): void
+    + getNombreCliente(): String
+    + setNombreCliente(nombreCliente: String): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getTelefono(): String
+    + setTelefono(telefono: String): void
+    + getMedioPago(): String
+    + setMedioPago(medioPago: String): void
+    + getFechaVencimiento(): String
+    + setFechaVencimiento(fechaVencimiento: String): void
+    + getCvv(): String
+    + setCvv(cvv: String): void
+    + getFechaVenta(): Timestamp
+    + setFechaVenta(fechaVenta: Timestamp): void
+    + getPrecioVenta(): double
+    + setPrecioVenta(precioVenta: double): void
+    + getModeloCarro(): String
+    + setModeloCarro(modeloCarro: String): void
+    + getAnoCarro(): int
+    + setAnoCarro(anoCarro: int): void
+    + getColorCarro(): String
+    + setColorCarro(colorCarro: String): void
+    + getEstadoCarro(): String
+    + setEstadoCarro(estadoCarro: String): void
+    + getKilometrajeCarro(): int
+    + setKilometrajeCarro(kilometrajeCarro: int): void
+    + getTipoCombustibleCarro(): String
+    + setTipoCombustibleCarro(tipoCombustibleCarro: String): void
+    + getTransmisionCarro(): String
+    + setTransmisionCarro(transmisionCarro: String): void
+  }
+
+  class VentaRepuestoBE {
+    - idVenta: int
+    - idRepuesto: int
+    - nombreCliente: String
+    - direccion: String
+    - telefono: String
+    - medioPago: String
+    - fechaVencimiento: String
+    - cvv: String
+    - fechaVenta: Timestamp
+    - precioVenta: double
+    - nombreRepuesto: String
+    - marcaRepuesto: String
+    - cantidad: int
+    - compatibilidadRepuesto: String
+    + getIdVenta(): int
+    + setIdVenta(idVenta: int): void
+    + getIdRepuesto(): int
+    + setIdRepuesto(idRepuesto: int): void
+    + getNombreCliente(): String
+    + setNombreCliente(nombreCliente: String): void
+    + getDireccion(): String
+    + setDireccion(direccion: String): void
+    + getTelefono(): String
+    + setTelefono(telefono: String): void
+    + getMedioPago(): String
+    + setMedioPago(medioPago: String): void
+    + getFechaVencimiento(): String
+    + setFechaVencimiento(fechaVencimiento: String): void
+    + getCvv(): String
+    + setCvv(cvv: String): void
+    + getFechaVenta(): Timestamp
+    + setFechaVenta(fechaVenta: Timestamp): void
+    + getPrecioVenta(): double
+    + setPrecioVenta(precioVenta: double): void
+    + getNombreRepuesto(): String
+    + setNombreRepuesto(nombreRepuesto: String): void
+    + getMarcaRepuesto(): String
+    + setMarcaRepuesto(marcaRepuesto: String): void
+    + getCantidad(): int
+    + setCantidad(cantidad: int): void
+    + getCompatibilidadRepuesto(): String
+    + setCompatibilidadRepuesto(compatibilidadRepuesto: String): void
+  }
+
+  ' Relaciones entre entidades
+  CarroBE "1" --> "1" ModeloBE
+  ModeloBE "1" --> "1" MarcaBE
+  VentaBE "1" --> "1" CarroBE
+  VentaRepuestoBE "1" --> "1" RepuestosBE
+}
+
+' Paquete BusinessLogic
+package BusinessLogic {
+  class CarroBL {
+    - dao: CarroDAO
+    + Create(carro: CarroBE): boolean
+    + Update(carro: CarroBE): boolean
+    + Delete(idCarro: String): boolean
+    + Read(idCarro: String): CarroBE
+    + listar(): List<CarroBE>
+  }
+
+  class MarcaBL {
+    + listar(): List<MarcaBE>
+    + registrar(marca: MarcaBE): boolean
+    + actualizar(marca: MarcaBE): boolean
+    + eliminar(id: String): boolean
+    + buscar(id: String): MarcaBE
+  }
+
+  class ModeloBL {
+    + listar(): List<ModeloBE>
+  }
+
+  class RepuestosBL {
+    - dao: RepuestosDAO
+    + listar(): List<RepuestosBE>
+    + Read(id: String): RepuestosBE
+    + Update(repuesto: RepuestosBE): boolean
+  }
+
+  class RespuestaBL {
+    + obtenerRespuesta(pregunta: String): String
+    + enviarMensaje(pregunta: String): String
+  }
+
+  class SedeBL {
+    - sedeDAO: SedeDAO
+    + SedeBL()
+    + listar(): List<SedeBE>
+    + obtenerPorId(id: String): SedeBE
+    + insertar(sede: SedeBE): boolean
+    + actualizar(sede: SedeBE): boolean
+    + eliminar(id: String): boolean
+    + buscarPorNombre(nombre: String): List<SedeBE>
+    + cambiarEstado(id: String, nuevoEstado: String): boolean
+  }
+
+  class UsuarioBL {
+    - usuarioDAO: UsuarioDAO
+    + UsuarioBL()
+    + listar(): List<UsuarioBE>
+    + obtenerPorId(id: String): UsuarioBE
+    + crear(usuario: UsuarioBE): boolean
+    + actualizar(usuario: UsuarioBE): boolean
+    + eliminar(id: String): boolean
+    + autenticar(email: String, contrasena: String): UsuarioBE
+    + existeEmail(email: String): boolean
+  }
+
+  class VentaBL {
+    - dao: VentaDAO
+    + Create(venta: VentaBE): boolean
+    + listar(): List<VentaBE>
+  }
+
+  class VentaRepuestoBL {
+    - dao: VentaRepuestoDAO
+    + Create(venta: VentaRepuestoBE): boolean
+    + listar(): List<VentaRepuestoBE>
+  }
+
+  ' Relaciones con DAOs
+  CarroBL --> CarroDAO
+  MarcaBL --> MarcaDAO
+  ModeloBL --> ModeloDAO
+  RepuestosBL --> RepuestosDAO
+  RespuestaBL --> RespuestaDAO
+  SedeBL --> SedeDAO
+  UsuarioBL --> UsuarioDAO
+  VentaBL --> VentaDAO
+  VentaRepuestoBL --> VentaRepuestoDAO
+}
+
+' Paquete DataAccessObject
+package DataAccessObject {
+  interface IBaseDAO<T> {
+    + Create(input: T): boolean
+    + Read(input: String): T
+    + ReadAll(): ArrayList<T>
+    + Update(input: T): boolean
+    + Delete(input: String): boolean
+  }
+
+  class CarroDAO {
+    + Create(carro: CarroBE): boolean
+    + Read(id: String): CarroBE
+    + ReadAll(): ArrayList<CarroBE>
+    + Update(carro: CarroBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class ConexionMySQL {
+    - conexionURL: String
+    - usuario: String
+    - contrasena: String
+    - conexion: Connection
+    + ConexionMySQL()
+    + getConexion(): Connection
+  }
+
+  class MarcaDAO {
+    + Create(marca: MarcaBE): boolean
+    + Read(id: String): MarcaBE
+    + ReadAll(): ArrayList<MarcaBE>
+    + Update(marca: MarcaBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class ModeloDAO {
+    + Create(modelo: ModeloBE): boolean
+    + Read(id: String): ModeloBE
+    + ReadAll(): ArrayList<ModeloBE>
+    + Update(modelo: ModeloBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class RepuestosDAO {
+    + Create(repuesto: RepuestosBE): boolean
+    + Read(id: String): RepuestosBE
+    + ReadAll(): ArrayList<RepuestosBE>
+    + Update(repuesto: RepuestosBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class RespuestaDAO {
+    + insertarPregunta(pregunta: String): boolean
+    + actualizarRespuesta(idRespuesta: int, respuesta: String): boolean
+    + obtenerUltimoMensaje(): String
+    + listarMensajes(): List<String>
+    + listarMensajesRespuestas(): List<String>
+    + obtenerRespuesta(pregunta: String): String
+  }
+
+  class SedeDAO {
+    + Create(sede: SedeBE): boolean
+    + Read(id: String): SedeBE
+    + ReadAll(): ArrayList<SedeBE>
+    + Update(sede: SedeBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class UsuarioDAO {
+    + Create(usuario: UsuarioBE): boolean
+    + Read(id: String): UsuarioBE
+    + ReadAll(): ArrayList<UsuarioBE>
+    + Update(usuario: UsuarioBE): boolean
+    + Delete(id: String): boolean
+    + autenticar(email: String, contrasena: String): UsuarioBE
+  }
+
+  class VentaDAO {
+    + Create(venta: VentaBE): boolean
+    + Read(id: String): VentaBE
+    + ReadAll(): ArrayList<VentaBE>
+    + Update(t: VentaBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  class VentaRepuestoDAO {
+    + Create(venta: VentaRepuestoBE): boolean
+    + Read(id: String): VentaRepuestoBE
+    + ReadAll(): ArrayList<VentaRepuestoBE>
+    + Update(t: VentaRepuestoBE): boolean
+    + Delete(id: String): boolean
+  }
+
+  ' Relaciones de herencia e implementación
+  CarroDAO --|> ConexionMySQL
+  CarroDAO ..|> IBaseDAO
+  MarcaDAO --|> ConexionMySQL
+  MarcaDAO ..|> IBaseDAO
+  ModeloDAO --|> ConexionMySQL
+  ModeloDAO ..|> IBaseDAO
+  RepuestosDAO --|> ConexionMySQL
+  RepuestosDAO ..|> IBaseDAO
+  SedeDAO --|> ConexionMySQL
+  SedeDAO ..|> IBaseDAO
+  UsuarioDAO --|> ConexionMySQL
+  UsuarioDAO ..|> IBaseDAO
+  VentaDAO --|> ConexionMySQL
+  VentaDAO ..|> IBaseDAO
+  VentaRepuestoDAO --|> ConexionMySQL
+  VentaRepuestoDAO ..|> IBaseDAO
+}
+
+' Paquete Services
+package Services {
+  class AuthFilter {
+    + init(filterConfig: FilterConfig): void
+    + doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain): void
+    + destroy(): void
+  }
+
+  class CarroServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPut(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class LoginServlet {
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class LogoutServlet {
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class MarcaServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class ModeloServlet {
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPut(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class RepuestosServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPut(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class RespuestaRapidaServlet {
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class SedeServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPut(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class UsuarioServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    - convertirUsuarioAJson(usuario: UsuarioBE): JSONObject
+    - convertirJsonAUsuario(json: JSONObject): UsuarioBE
+    + doGet(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doPut(req: HttpServletRequest, resp: HttpServletResponse): void
+    + doDelete(req: HttpServletRequest, resp: HttpServletResponse): void
+    - procesarUsuarioRequest(req: HttpServletRequest, resp: HttpServletResponse, esActualizacion: boolean): void
+  }
+
+  class VentaRepuestoServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  class VentaServlet {
+    - parseJson(req: HttpServletRequest): JSONObject
+    - writeJson(resp: HttpServletResponse, json: JSONObject, status: int): void
+    + doPost(req: HttpServletRequest, resp: HttpServletResponse): void
+  }
+
+  ' Relaciones con BLs
+  CarroServlet --> CarroBL
+  LoginServlet --> UsuarioBL
+  MarcaServlet --> MarcaBL
+  ModeloServlet --> ModeloBL
+  RepuestosServlet --> RepuestosBL
+  RespuestaRapidaServlet --> RespuestaBL
+  SedeServlet --> SedeBL
+  UsuarioServlet --> UsuarioBL
+  VentaRepuestoServlet --> VentaRepuestoBL
+  VentaRepuestoServlet --> RepuestosBL
+  VentaServlet --> VentaBL
+  VentaServlet --> CarroBL
+}
+
+' Relaciones entre paquetes
+BusinessLogic --> BusinessEntity
+DataAccessObject --> BusinessEntity
+Services --> BusinessLogic
+Services --> BusinessEntity
+
+@enduml

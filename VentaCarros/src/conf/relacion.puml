@@ -1,0 +1,56 @@
+@startuml
+
+package BusinessEntity {
+  [CarroBE] --> [ModeloBE] : tiene
+  [ModeloBE] --> [MarcaBE] : pertenece a
+  [VentaBE] --> [CarroBE] : vende
+  [VentaRepuestoBE] --> [RepuestosBE] : vende
+}
+
+package BusinessLogic {
+  [CarroBL] --> [CarroDAO]
+  [MarcaBL] --> [MarcaDAO]
+  [ModeloBL] --> [ModeloDAO]
+  [RepuestosBL] --> [RepuestosDAO]
+  [RespuestaBL] --> [RespuestaDAO]
+  [SedeBL] --> [SedeDAO]
+  [UsuarioBL] --> [UsuarioDAO]
+  [VentaBL] --> [VentaDAO]
+  [VentaRepuestoBL] --> [VentaRepuestoDAO]
+}
+
+package DataAccessObject {
+  [CarroDAO] --|> [ConexionMySQL]
+  [CarroDAO] ..|> [IBaseDAO]
+  [MarcaDAO] --|> [ConexionMySQL]
+  [MarcaDAO] ..|> [IBaseDAO]
+  [ModeloDAO] --|> [ConexionMySQL]
+  [ModeloDAO] ..|> [IBaseDAO]
+  [RepuestosDAO] --|> [ConexionMySQL]
+  [RepuestosDAO] ..|> [IBaseDAO]
+  [SedeDAO] --|> [ConexionMySQL]
+  [SedeDAO] ..|> [IBaseDAO]
+  [UsuarioDAO] --|> [ConexionMySQL]
+  [UsuarioDAO] ..|> [IBaseDAO]
+  [VentaDAO] --|> [ConexionMySQL]
+  [VentaDAO] ..|> [IBaseDAO]
+  [VentaRepuestoDAO] --|> [ConexionMySQL]
+  [VentaRepuestoDAO] ..|> [IBaseDAO]
+}
+
+package Services {
+  [CarroServlet] --> [CarroBL]
+  [LoginServlet] --> [UsuarioBL]
+  [MarcaServlet] --> [MarcaBL]
+  [ModeloServlet] --> [ModeloBL]
+  [RepuestosServlet] --> [RepuestosBL]
+  [RespuestaRapidaServlet] --> [RespuestaBL]
+  [SedeServlet] --> [SedeBL]
+  [UsuarioServlet] --> [UsuarioBL]
+  [VentaRepuestoServlet] --> [VentaRepuestoBL]
+  [VentaRepuestoServlet] --> [RepuestosBL]
+  [VentaServlet] --> [VentaBL]
+  [VentaServlet] --> [CarroBL]
+}
+
+@enduml
