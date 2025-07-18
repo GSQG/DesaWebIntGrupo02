@@ -50,9 +50,9 @@ public class LoginServlet extends HttpServlet {
             if (isJson) {
                 resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 resp.setContentType("application/json");
-                resp.getWriter().write("{\"error\":\"Usuario o contraseña incorrectos\"}");
+                resp.getWriter().write("{\"error\":\"Los datos ingresados no son correctos\"}");
             } else {
-                req.setAttribute("error", "usuario o contraseña incorrectos");
+                req.setAttribute("error", "Los datos ingresados no son correctos");
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);
             }
         }
