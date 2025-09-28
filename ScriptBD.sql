@@ -3,7 +3,7 @@ CREATE DATABASE VentaCarros
 
 USE VentaCarros;
 
-Como en railway se crea la bd, solo nos conectamos desde un gestor bd y lanzamos los scripts
+-- Como en railway se crea la bd, solo nos conectamos desde un gestor bd y lanzamos los scripts
 -- Estos son los usuarios, en caso usemos
 CREATE TABLE Usuarios (
   id_usuario INT AUTO_INCREMENT PRIMARY KEY,
