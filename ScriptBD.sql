@@ -1,7 +1,4 @@
 -- Esto es para crear la BD, aunque en railway lo crea directo, asi que no estamos seguros si lo usaremos
-CREATE DATABASE VentaCarros
-
-USE VentaCarros;
 
 -- Como en railway se crea la bd, solo nos conectamos desde un gestor bd y lanzamos los scripts
 -- Estos son los usuarios, en caso usemos
@@ -74,6 +71,18 @@ CREATE TABLE Carros (
     ON DELETE RESTRICT
 );
 
+CREATE TABLE Repuestos (
+    id_repuesto INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    material VARCHAR(50) NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    costo DECIMAL(10,2) NOT NULL,
+    categoria VARCHAR(50),
+    descripcion TEXT,
+    stock INT DEFAULT 0,
+    compatibilidad VARCHAR(50)
+);
+
 CREATE TABLE VentasRepuestos (
     id_venta_repuesto INT AUTO_INCREMENT PRIMARY KEY,
     id_repuesto INT,
@@ -81,7 +90,7 @@ CREATE TABLE VentasRepuestos (
     direccion VARCHAR(200),
     telefono VARCHAR(20),
     medio_pago VARCHAR(20),
-    fecha_vencimiento VARCHAR(10), -- Para tarjeta, formato MM/YY
+    fecha_vencimiento VARCHAR(10),
     cvv VARCHAR(3),
     fecha_venta TIMESTAMP,
     precio_venta DOUBLE,
@@ -91,6 +100,7 @@ CREATE TABLE VentasRepuestos (
     cantidad INT,
     FOREIGN KEY (id_repuesto) REFERENCES Repuestos(id_repuesto)
 );
+
 CREATE TABLE VentasCarros (
   id_venta INT AUTO_INCREMENT PRIMARY KEY,
   id_carro INT NOT NULL,
@@ -110,6 +120,7 @@ CREATE TABLE VentasCarros (
   tipo_combustible_carro VARCHAR(50),
   transmision_carro VARCHAR(50)
 );
+
 -- Tambien para las imagenenes, tendriamos que ver que el server tenga suficiente espacio para esto...
 CREATE TABLE ImagenesCarros (
   id_imagen INT AUTO_INCREMENT PRIMARY KEY,
@@ -236,18 +247,6 @@ CREATE TABLE Sedes (
     estado VARCHAR(20)
 );
 
---Otra para repuestos
-CREATE TABLE Repuestos (
-    id_repuesto INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    material VARCHAR(50) NOT NULL,
-    marca VARCHAR(50) NOT NULL,
-    costo DECIMAL(10,2) NOT NULL,
-    categoria VARCHAR(50),
-    descripcion TEXT,
-    stock INT DEFAULT 0,
-    compatibilidad VARCHAR(50)
-);
 
 CREATE TABLE RespuestasRapidas (
     idRespuesta INT AUTO_INCREMENT PRIMARY KEY,
